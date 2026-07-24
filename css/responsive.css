@@ -1,0 +1,49 @@
+/* ==========================================================================
+   RESPONSIVE OVERRIDES
+   Mobile-first content already fluid via clamp(); this file handles
+   structural changes at breakpoints.
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: var(--header-h);
+    left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border-soft);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--dur-med) var(--ease-out);
+  }
+  .nav-links.is-open { max-height: 240px; }
+  .nav-links a { padding: 16px 28px; border-bottom: 1px solid var(--border-soft); }
+  .nav-links a::after { display: none; }
+  .projects-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+
+  .hero { padding: 72px 0 48px; }
+  .hero-quote { padding-left: 16px; }
+
+  .social-row { flex-direction: column; }
+  .btn-social { justify-content: center; }
+
+  .modal-img-container { height: 190px; }
+  .modal-content-wrap { padding: 24px; }
+
+  .blob-a { width: 260px; height: 260px; top: -100px; right: -100px; }
+  .blob-b { width: 200px; height: 200px; }
+  .blob-c { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.35rem; }
+  .interest-item { padding: 10px 16px; font-size: 0.86rem; }
+  .status-badge { font-size: 0.78rem; }
+  .section-title { font-size: 1.5rem; }
+}
